@@ -1,9 +1,9 @@
 FROM oraclelinux:7-slim
 
-WORKDIR /app
+WORKDIR /administracion-service/app
 
-COPY package.json /app
-COPY package-lock.json /app
+COPY package.json /administracion-service/app
+COPY package-lock.json /administracion-service/app
 
 # Update Oracle Linux
 # Install NodeJS
@@ -21,5 +21,5 @@ RUN yum update -y && \
   npm install express-generator && \
   npm install oracledb && \
   echo Installed
-COPY . /app
+COPY . /administracion-service/app
 CMD DEBUG=administracion-service:* npm start
